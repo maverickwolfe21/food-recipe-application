@@ -1,0 +1,21 @@
+{
+  "name": "ryan-reynolds-hub",
+  "version": "1.0.0",
+  "description": "Only the best pictures of Ryan Reynolds",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maverickwolfe21/ryan-reynolds-hub.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maverickwolfe21/ryan-reynolds-hub/issues"
+  },
+  "homepage": "https://github.com/maverickwolfe21/ryan-reynolds-hub#readme"
+}

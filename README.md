@@ -1,2 +1,2 @@
-# ryan-reynolds-hub
+# Recipes DB
 Only the best pictures of Ryan Reynolds

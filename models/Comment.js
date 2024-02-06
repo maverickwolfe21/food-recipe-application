@@ -1,11 +1,9 @@
-// setup ingredient model
-
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Ingredient extends Model {}
+class Comment extends Model {}
 
-Ingredient.init(
+Comment.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -13,18 +11,26 @@ Ingredient.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    text: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    amount: {
-      type: DataTypes.STRING,
-      allowNull: true,
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
     recipe_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "recipe",
+        key: "id",
+      },
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "user",
         key: "id",
       },
     },
@@ -34,8 +40,8 @@ Ingredient.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "ingredient",
+    modelName: "comment",
   }
 );
 
-module.exports = Ingredient;
+module.exports = Comment;

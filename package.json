@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node seeds/seed.js",
     "start": "node server.js"
   },
   "repository": {
@@ -17,5 +18,12 @@
   "bugs": {
     "url": "https://github.com/maverickwolfe21/ryan-reynolds-hub/issues"
   },
-  "homepage": "https://github.com/maverickwolfe21/ryan-reynolds-hub#readme"
+  "homepage": "https://github.com/maverickwolfe21/ryan-reynolds-hub#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "mysql2": "^3.9.1",
+    "sequelize": "^6.36.0"
+  }
 }

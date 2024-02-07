@@ -1,29 +1,23 @@
 {
-  "name": "ryan-reynolds-hub",
-  "version": "1.0.0",
-  "description": "Only the best pictures of Ryan Reynolds",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "seed": "node seeds/seed.js",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/maverickwolfe21/ryan-reynolds-hub.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/maverickwolfe21/ryan-reynolds-hub/issues"
-  },
-  "homepage": "https://github.com/maverickwolfe21/ryan-reynolds-hub#readme",
-  "dependencies": {
-    "bcrypt": "^5.1.1",
-    "dotenv": "^16.4.1",
-    "express": "^4.18.2",
-    "mysql2": "^3.9.1",
-    "sequelize": "^6.36.0"
-  }
+    "name": "ryan-reynolds-hub",
+    "version": "1.0.0",
+    "description": "Only the best pictures of Ryan Reynolds",
+    "main": "server.js",
+    "scripts": {
+        "seed": "node seeds/seed.js",
+        "start": "node server.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bcrypt": "^5.1.1",
+        "connect-session-sequelize": "^7.1.7",
+        "dotenv": "^16.4.1",
+        "express": "^4.18.2",
+        "express-handlebars": "^7.1.2",
+        "express-session": "^1.18.0",
+        "mysql2": "^3.9.1",
+        "sequelize": "^6.36.0"
+    }
 }

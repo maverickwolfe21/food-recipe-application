@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
     //convert post to plain text
     const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
     // Render homepage template with posts and login status
-    res.render("homepage", { recipes });
+    res.render("homepage", { recipes, logged_in: req.session.logged_in });
     // logged_in: req.session.logged_in });
     // If there is an error, return 500 status code and error message
   } catch (err) {
@@ -31,7 +31,7 @@ router.get("/recipe/:id", async (req, res) => {
     }
 
     const recipe = recipeData.get({ plain: true });
-    res.render("recipe", recipe);
+    res.render("recipe", { ...recipe, logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -39,12 +39,22 @@ router.get("/recipe/:id", async (req, res) => {
 
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to another route
-  // if (req.session.logged_in) {
-  //   res.redirect("/profile");
-  //   return;
-  // }
+  if (req.session.logged_in) {
+    res.redirect("/");
+    return;
+  }
 
   res.render("login");
+});
+
+router.get("/upload", (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (!req.session.logged_in) {
+    res.redirect("/login");
+    return;
+  }
+
+  res.render("upload", { logged_in: req.session.logged_in });
 });
 
 router.post("/login", async (req, res) => {

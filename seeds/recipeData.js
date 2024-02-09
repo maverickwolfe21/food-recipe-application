@@ -13,7 +13,8 @@ module.exports = [
       }
     ],
     "date_created": "11-23-24",
-    "user_id": 1
+    "user_id": 1,
+    "image": "s3://food-photo-bucket/mommas cornbread.jpg"
   },
   {
     "name": "Pancakes",
@@ -23,7 +24,8 @@ module.exports = [
     }],
     "instructions": "Do this then that",
     "date_created": "11-23-24",
-    "user_id": 1
+    "user_id": 1,
+    "image": "s3://food-photo-bucket/pancakes.jpg"
   },
   {
     "name": "Sausage",
@@ -33,7 +35,9 @@ module.exports = [
     }],
     "instructions": "Do this then that",
     "date_created": "11-23-24",
-    "user_id": 1
+    "user_id": 1,
+    "image": "s3://food-photo-bucket/sausage.jpg"
+
   },
   {
     "name": "Hot Dogs",
@@ -43,6 +47,8 @@ module.exports = [
     }],
     "instructions": "Do this then that",
     "date_created": "11-23-24",
-    "user_id": 1
+    "user_id": 1,
+    "image": "s3://food-photo-bucket/hotdogs.jpg"
+
   }
 ]

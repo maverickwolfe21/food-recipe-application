@@ -3,7 +3,7 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Recipe extends Model {}
+class Recipe extends Model { }
 
 Recipe.init(
   {
@@ -20,6 +20,10 @@ Recipe.init(
     instructions: {
       type: DataTypes.TEXT,
       allowNull: false,
+    },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     date_created: {
       type: DataTypes.DATE,

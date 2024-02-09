@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
     const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
     // Render homepage template with posts and login status
     res.render("homepage", { recipes, logged_in: req.session.logged_in });
-    // logged_in: req.session.logged_in });
+
     // If there is an error, return 500 status code and error message
   } catch (err) {
     res.status(500).json(err);
@@ -48,7 +48,7 @@ router.get("/login", (req, res) => {
 });
 
 router.get("/upload", (req, res) => {
-  // If the user is already logged in, redirect the request to another route
+  // If the user is not logged in, redirect the request to another route
   if (!req.session.logged_in) {
     res.redirect("/login");
     return;
@@ -62,19 +62,24 @@ router.post("/login", async (req, res) => {
     const userData = await User.findOne({ where: { email: req.body.email } });
 
     if (!userData) {
-      res.status(400).json({ message: "Incorrect email or password, please try again" });
+      res
+        .status(400)
+        .json({ message: "Incorrect email or password, please try again" });
       return;
     }
 
     const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
-      res.status(400).json({ message: "Incorrect email or password, please try again" });
+      res
+        .status(400)
+        .json({ message: "Incorrect email or password, please try again" });
       return;
     }
 
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      //save session data
+      req.session.user_id = userData.id; //save logged in user id
       req.session.logged_in = true;
 
       res.json({ user: userData, message: "You are now logged in!" });

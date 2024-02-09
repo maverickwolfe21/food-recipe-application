@@ -20,6 +20,36 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+  router.get("/recipe/:id", async (req, res) => {
+    try {
+        const recipeData =  await Recipe.findByPk(req.params.id, {
+include: [{ model: User}, { model:Ingredient}]
+        })
+    }catch (err) {
+    } 
+  });
+
+  router.get("/recipe/:dashboard", async (req, res) => {
+    try {
+      const recipeData =  await Ingredient.findByPk(req.params.dashboard, {
+include: [{ model: User}, { model:Ingredient}]
+      });
+      if(!recipeData)
+  }catch (err) {
+  }
+});
+
+router.get("/recipe/:logIn", async (req, res) => {
+  try {
+    const recipeData =  await Comment.findByPk(req.params.logIn, {
+include: [{ model: User}, { model:Ingredient}]
+    })
+}catch (err) {
+}
+});
+
+
 //route to render single recipe page
 // router.get("/recipe/:id", async (req, res) => {
 //   try {

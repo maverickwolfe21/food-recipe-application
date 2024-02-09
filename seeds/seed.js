@@ -13,13 +13,12 @@ const seedDatabase = async () => {
   });
 
   for (const recipe of recipeData) {
-
     const dbRecipe = await Recipe.create({
       ...recipe,
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
 
-    for(const ingredient of recipe.ingredients){
+    for (const ingredient of recipe.ingredients) {
       const dbIngredient = await Ingredient.create({
         ...ingredient,
         recipe_id: dbRecipe.id,

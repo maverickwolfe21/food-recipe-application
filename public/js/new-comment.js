@@ -1,6 +1,6 @@
 const newCommentFormHandler = async (event) => {
   event.preventDefault();
-  //get the post_id from the URL
+  //get the recipe id from the URL
   const recipe_id = parseInt(window.location.pathname.split("/").pop());
 
   //get the content of the new comment from input field

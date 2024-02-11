@@ -10,7 +10,7 @@ const newCommentFormHandler = async (event) => {
     //send post request to create a new comment with the input values as JSON data
     const response = await fetch(`/api/comments`, {
       method: "POST",
-      body: JSON.stringify({ comment_text: content, recipe_id }),
+      body: JSON.stringify({ content, recipe_id }),
       headers: { "Content-Type": "application/json" },
     });
 

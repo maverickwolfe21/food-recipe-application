@@ -11,28 +11,33 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    text: {
+    comment_text: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
+      validate: {
+        len: [1],
+      },
+      user_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: "user",
+          key: "id",
+        },
+      },
     },
     recipe_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: "recipe",
         key: "id",
       },
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "user",
-        key: "id",
-      },
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: true,
+      defaultValue: DataTypes.NOW,
     },
   },
   {

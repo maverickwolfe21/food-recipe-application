@@ -6,8 +6,8 @@
     <img src="{{image}}"></img>
   </article>
   {{#if logged_in}}
-    <form class="new-comment-form" class="mb-3">
-      <div class="mb-3">
+    <form class="new-comment-form" class="mt-3">
+      <div class="mt-3">
         <label for="comment" class="form-label">Add Comment:</label>
         <textarea
           class="form-control"
@@ -21,7 +21,7 @@
   {{/if}}
   <h2>Comment History:</h2>
   {{#each comment}}
-    <div class="comment mb-3">
+    <div class="comment mt-3">
       <p>{{comment_text}}</p>
       <p>By {{user.name}} on {{format_date date_created}}</p>
     </div>

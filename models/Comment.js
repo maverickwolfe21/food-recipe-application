@@ -17,26 +17,27 @@ Comment.init(
       validate: {
         len: [1],
       },
-    },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
+      user_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: "user",
+          key: "id",
+        },
+      },
     },
     recipe_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: "recipe",
         key: "id",
       },
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "user",
-        key: "id",
-      },
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: true,
+      defaultValue: DataTypes.NOW,
     },
   },
   {

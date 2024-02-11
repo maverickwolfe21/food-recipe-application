@@ -12,28 +12,45 @@
 
 .post-container {
   transition: background-color 0.3s;
-  
 }
 
-.card :hover:before {
+.card {
   border-radius: 0.5em;
   box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
   background-color: #fff;
   margin-bottom: 1em;
   padding: 5px;
+  
 }
-.card :hover img
-{
-	transform: scale(1.1);
+.card :hover img {
+  transform: scale(1.1);
 }
 
 .card-body {
-  padding: 1em;
+  margin: 0;
+  padding: 10px;
+  font-size: 1.2rem;
+  resize: horizontal;
+  border: 1px dashed;
+  overflow: auto;
+  max-width: 100%;
+  height: calc(100vh -16px);
+  width: auto;
+  line-height: 1.6rem;
+  background-image: linear-gradient(45deg, #7c9885, #b5b682);
+  min-height: 100vh;
 }
 
-* .col-md-4{
-    margin: 50px; 
-  }  
+
+.main-recipes-text {
+  position: center;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+* .col-md-4 {
+  margin: 50px;
+}
 .card-img-top {
   border-radius: 0.5em;
   box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
@@ -41,7 +58,7 @@
   margin-bottom: 1em;
   padding: 1px;
 }
-.card-img-top::before {
+.card-img-top:before {
   box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
   content: "";
   position: absolute;
@@ -66,7 +83,7 @@
   padding: 1px;
 }
 
-*.card-img-top:hover:before {
+*.card-img-top {
   left: -180%;
 }
 
@@ -74,6 +91,8 @@
   font-size: 1.5em;
   margin-bottom: 0.5em;
 }
+
+
 */
 
   /* .card-title {
@@ -94,6 +113,7 @@
   
   body {
   font-family: "Roboto", sans-serif;
+  font-weight: bold;
 }
 
 /* Responsive Features */

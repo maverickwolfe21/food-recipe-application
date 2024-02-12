@@ -3,7 +3,8 @@ const newFormHandler = async (event) => {
 
   const name = document.querySelector("#recipe-name").value.trim();
   const instructions = document.querySelector("#recipe-instructions").value.trim();
-  const image = document.querySelector("#img").value.trim();
+  const image = document.querySelector("#image").value.trim();
+  const caption = document.querySelector("#caption").value.trim();
 
   if (name && instructions) {
     // aws upload
@@ -15,7 +16,8 @@ const newFormHandler = async (event) => {
       body: JSON.stringify({
         name,
         instructions,
-        image: "", //
+        image,
+        caption,
       }),
       headers: {
         "Content-Type": "application/json",

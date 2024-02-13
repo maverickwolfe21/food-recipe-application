@@ -7,9 +7,10 @@
 #### APIs: 
 
 ### Screenshot
+![image](https://github.com/maverickwolfe21/ryans-recipes/assets/32653569/7fe99aed-0151-45de-a618-3b79841c81c2)
 
-### Tasks: 
-#### Jessica: 
-#### Maverick: 
-#### Victor: 
-#### Zachary:
+### Tasks 
+#### Jessica: handlebars
+#### Maverick: api routes
+#### Victor: styles
+#### Zachary: multer/image uploads

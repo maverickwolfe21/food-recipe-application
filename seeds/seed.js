@@ -27,13 +27,10 @@ const seedDatabase = async () => {
     }
   }
 
-  for (const comment of commentData) {
-    const comments = await Comment.create({
-      ...comment,
-      user_id: comment.user_id,
-      recipe_id: comment.recipe_id,
-    });
-  }
+  const comments = await Comment.bulkCreate(commentData, {
+    individualHooks: true,
+    returning: true,
+  });
 
   process.exit(0);
 };

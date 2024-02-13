@@ -1,4 +1,3 @@
-
 const { Comment } = require("../models");
 
 const commentData = [
@@ -22,13 +21,13 @@ const commentData = [
   },
   {
     comment_text: "Can't wait to try this!",
-    user_id: 4,
+    user_id: 3,
     recipe_id: 2,
     date_created: "2021-04-04",
   },
   {
     comment_text: "Hope you guus like this!",
-    user_id: 5,
+    user_id: 3,
     recipe_id: 3,
     date_created: "2021-04-05",
   },
@@ -46,6 +45,4 @@ const commentData = [
   },
 ];
 
-const seedComments = () => Comment.bulkCreate(commentData);
-
-module.exports = seedComments
+module.exports = commentData;

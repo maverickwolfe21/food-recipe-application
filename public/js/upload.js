@@ -1,40 +1,3 @@
-// const newFormHandler = async (event) => {
-//   event.preventDefault();
-
-//   const name = document.querySelector("#recipe-name").value.trim();
-//   const instructions = document.querySelector("#recipe-instructions").value.trim();
-//   const image = document.querySelector("#img").value.trim();
-
-//   if (name && instructions) {
-//     // aws upload
-//     // onSuccess, get img link
-//     // const image = img link from aws
-
-//     const response = await fetch(`/api/recipes`, {
-//       method: "POST",
-//       body: JSON.stringify({
-//         name,
-//         instructions,
-//         image: "", //
-//       }),
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//     });
-
-//     if (response.ok) {
-//       document.location.replace("/");
-//     } else {
-//       alert("Failed to create project");
-//     }
-//   }
-// };
-
-// document.querySelector(".new-recipe-form").addEventListener("submit", newFormHandler);
-
-// const { uploadFile } = require('./s3')
-
-
 const newFormHandler = async (event) => {
   event.preventDefault();
 
@@ -43,6 +6,8 @@ const newFormHandler = async (event) => {
   const imageInput = document.querySelector("#img");
 
   let imageUrl = ""; // Placeholder for the image URL
+  const image = document.querySelector("#image").value.trim();
+  const caption = document.querySelector("#caption").value.trim();
 
   // Check if an image was selected
   if (imageInput.files.length > 0) {
@@ -57,7 +22,6 @@ const newFormHandler = async (event) => {
       const response = await fetch('/api/upload-img', {
         method: 'POST',
         body: formData,
-
       });
 
       if (response.ok) {

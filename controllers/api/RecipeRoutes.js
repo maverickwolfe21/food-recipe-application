@@ -2,6 +2,8 @@ const router = require("express").Router();
 const { Recipe } = require("../../models");
 const { Ingredient } = require("../../models");
 const withAuth = require("../../utils/auth");
+const multer = require('multer')
+const upload = multer({ dest: 'uploads/' });
 
 //get request to pull recipe data
 router.get("/", async (req, res) => {
@@ -66,5 +68,4 @@ router.delete("/:id", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 module.exports = router;

@@ -1,7 +1,6 @@
 // This is where we will create our sequelize connection.
 const Sequelize = require("sequelize");
 require("dotenv").config();
-const AWS = require('aws-sdk');
 
 let sequelize;
 
@@ -18,10 +17,7 @@ if (process.env.JAWSDB_URL) {
 
 
 
-AWS.config.update({
-  accessKeyId: process.env.accessKeyId,
-  secretAccessKey: process.env.secretAccessKey,
-  region: 'US West (N. California) us-west-1'
-});
+
 
 module.exports = sequelize;
+

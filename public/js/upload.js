@@ -3,11 +3,9 @@ const newFormHandler = async (event) => {
 
   const name = document.querySelector("#recipe-name").value.trim();
   const instructions = document.querySelector("#recipe-instructions").value.trim();
-  const imageInput = document.querySelector("#img");
+  const imageInput = document.querySelector("#image");
 
   let imageUrl = ""; // Placeholder for the image URL
-  const image = document.querySelector("#image").value.trim();
-  const caption = document.querySelector("#caption").value.trim();
 
   // Check if an image was selected
   if (imageInput.files.length > 0) {
@@ -15,12 +13,12 @@ const newFormHandler = async (event) => {
 
     // Create a FormData object to send the file
     const formData = new FormData();
-    formData.append('file', imageFile);
+    formData.append("file", imageFile);
 
     try {
       // Upload the image to S3
-      const response = await fetch('/api/upload-img', {
-        method: 'POST',
+      const response = await fetch("/api/upload-img", {
+        method: "POST",
         body: formData,
       });
 
@@ -29,11 +27,11 @@ const newFormHandler = async (event) => {
         const data = await response.json();
         imageUrl = data.filename;
       } else {
-        throw new Error('Failed to upload image');
+        throw new Error("Failed to upload image");
       }
     } catch (error) {
-      console.error('Error uploading image:', error);
-      alert('Failed to upload image');
+      console.error("Error uploading image:", error);
+      alert("Failed to upload image");
       return;
     }
   }
@@ -43,28 +41,28 @@ const newFormHandler = async (event) => {
     try {
       // Send recipe data to your backend API
       const response = await fetch(`/api/recipes`, {
-        method: 'POST',
+        method: "POST",
         body: JSON.stringify({
           name,
           instructions,
-          image: imageUrl // Use the uploaded image URL
+          image: imageUrl, // Use the uploaded image URL
         }),
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       });
 
       if (response.ok) {
         // Redirect to the homepage upon successful creation
-        // document.location.replace('/');
+        document.location.replace("/");
       } else {
-        throw new Error('Failed to create project');
+        throw new Error("Failed to create project");
       }
     } catch (error) {
-      console.error('Error creating project:', error);
-      alert('Failed to create project');
+      console.error("Error creating project:", error);
+      alert("Failed to create project");
     }
   }
 };
 
-document.querySelector('.new-recipe-form').addEventListener('submit', newFormHandler);
+document.querySelector(".new-recipe-form").addEventListener("submit", newFormHandler);
